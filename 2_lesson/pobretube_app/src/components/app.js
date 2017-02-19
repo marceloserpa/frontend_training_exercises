@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 
 import SearchBar from "./search-bar";
+import VideoList from "./video-list";
 
 const key = "AIzaSyAj498PNpgd2uY-WnRUZxr4t-vfLUQPq9U";
 
@@ -14,31 +15,35 @@ class App extends Component {
     super(props);
 
     this.state = {
-      list
+      videos: []
     };
 
   }
 
   search(term){
-    console.log(term)
     let url = api+"?part=snippet&key=AIzaSyAj498PNpgd2uY-WnRUZxr4t-vfLUQPq9U&q="+term;
-    console.log(url)
+    var self = this;
     Axios.get(url).then(function(result){
-      console.log(result);
+      let videosFiltered = result.data.items.map(element => element.snippet);
+      console.log(videosFiltered)
+      self.setState({videos: videosFiltered});
     });
-    this.setState({list: []});
+
   }
 
   render(){
     return (
       <div>
         <SearchBar search={this.search.bind(this)} />
+        <VideoList videos={this.state.videos} />
       </div>
     );
   }
 
 }
 
-const list = [];
+const videos = [
+  {title : "movie 1"}
+];
 
 export default App;
