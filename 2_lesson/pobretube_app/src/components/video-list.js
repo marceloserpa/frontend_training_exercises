@@ -10,11 +10,27 @@ class VideoList extends Component {
   }
 
   build(){
-    return this.props.videos.map(element => <VideoListItem title={element.title}></VideoListItem>);
+    return (
+      this.props.videos.map(element =>
+        <VideoListItem id={element.id}
+                       title={element.title}
+                       description={element.description}
+                       thumbnail={element.thumbnailSrc}
+                       selectVideo={this.props.selectVideo}>
+        </VideoListItem>)
+    );
   }
 
   render(){
-    return (<div className="list-group" >{this.build()}</div>);
+    return (
+      <div className="row">
+        <div className="col-md-12">
+          <div className="list-group" >
+            {this.build()}
+          </div>
+        </div>
+      </div>
+    );
   }
 
 }

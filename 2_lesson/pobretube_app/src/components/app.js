@@ -21,21 +21,41 @@ class App extends Component {
   }
 
   search(term){
-    let url = api+"?part=snippet&key=AIzaSyAj498PNpgd2uY-WnRUZxr4t-vfLUQPq9U&q="+term;
+    let url = api+"?part=snippet&key=AIzaSyAj498PNpgd2uY-WnRUZxr4t-vfLUQPq9U&q="+encodeURIComponent(term)+"&type=video";
     var self = this;
     Axios.get(url).then(function(result){
-      let videosFiltered = result.data.items.map(element => element.snippet);
+      console.log("++++++++++++++++++++");
+      console.log(result.data.items);
+      let videosFiltered = result.data.items.map(element => {
+        let snippet = element.snippet;
+        let video = {
+          id: element.id.videoId,
+          title: snippet.title,
+          description: snippet.description,
+          thumbnailSrc: snippet.thumbnails.default.url
+        };
+        return video;
+      });
       console.log(videosFiltered)
       self.setState({videos: videosFiltered});
     });
-
   }
+
+  selectVideo(idVideo){
+    console.log(idVideo);
+  };
 
   render(){
     return (
       <div>
         <SearchBar search={this.search.bind(this)} />
-        <VideoList videos={this.state.videos} />
+        <div className="row">
+          <div className="col-md-6"></div>
+          <div className="col-md-6">
+            <VideoList videos={this.state.videos}
+                       selectVideo={this.selectVideo.bind(this)} />
+          </div>
+        </div>
       </div>
     );
   }
@@ -43,7 +63,7 @@ class App extends Component {
 }
 
 const videos = [
-  {title : "movie 1"}
+  {title : "movie 1", thumbnailSrc: ""}
 ];
 
 export default App;
