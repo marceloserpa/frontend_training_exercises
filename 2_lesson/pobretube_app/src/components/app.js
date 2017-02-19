@@ -4,6 +4,7 @@ import Axios from "axios";
 
 import SearchBar from "./search-bar";
 import VideoList from "./video-list";
+import YoutubePlayer from "./youtube-player"
 
 const key = "AIzaSyAj498PNpgd2uY-WnRUZxr4t-vfLUQPq9U";
 
@@ -15,7 +16,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      videos: []
+      videos: [],
+      selectedVideo: null
     };
 
   }
@@ -43,6 +45,7 @@ class App extends Component {
 
   selectVideo(idVideo){
     console.log(idVideo);
+    this.setState({selectedVideo: idVideo});
   };
 
   render(){
@@ -50,7 +53,9 @@ class App extends Component {
       <div>
         <SearchBar search={this.search.bind(this)} />
         <div className="row">
-          <div className="col-md-6"></div>
+          <div className="col-md-6">
+            <YoutubePlayer id={this.state.selectedVideo} />
+          </div>
           <div className="col-md-6">
             <VideoList videos={this.state.videos}
                        selectVideo={this.selectVideo.bind(this)} />

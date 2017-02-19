@@ -9,7 +9,7 @@ const VideoListItem = props => {
             <img src={props.thumbnail} />
           </div>
           <div className="col-md-9">
-            <b>{props.id} - {props.title}</b>
+            <b>{props.title}</b>
             <p>{props.description}</p>
           </div>
         </div>
