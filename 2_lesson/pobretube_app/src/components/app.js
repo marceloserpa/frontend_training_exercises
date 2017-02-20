@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 
+import HeaderBar from "./header-bar"
 import SearchBar from "./search-bar";
 import VideoList from "./video-list";
 import YoutubePlayer from "./youtube-player"
@@ -33,7 +34,8 @@ class App extends Component {
         let video = {
           id: element.id.videoId,
           title: snippet.title,
-          description: snippet.description,
+          channelTitle: snippet.channelTitle,
+          publishedAt: snippet.publishedAt,
           thumbnailSrc: snippet.thumbnails.default.url
         };
         return video;
@@ -51,12 +53,12 @@ class App extends Component {
   render(){
     return (
       <div>
-        <SearchBar search={this.search.bind(this)} />
-        <div className="row">
-          <div className="col-md-6">
+        <HeaderBar search={this.search.bind(this)} />
+        <div className="row video-area">
+          <div className="col-md-8">
             <YoutubePlayer id={this.state.selectedVideo} />
           </div>
-          <div className="col-md-6">
+          <div className="col-md-4">
             <VideoList videos={this.state.videos}
                        selectVideo={this.selectVideo.bind(this)} />
           </div>
@@ -66,9 +68,5 @@ class App extends Component {
   }
 
 }
-
-const videos = [
-  {title : "movie 1", thumbnailSrc: ""}
-];
 
 export default App;

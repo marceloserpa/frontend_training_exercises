@@ -14,7 +14,8 @@ class VideoList extends Component {
       this.props.videos.map(element =>
         <VideoListItem id={element.id}
                        title={element.title}
-                       description={element.description}
+                       channelTitle={element.channelTitle}
+                       publishedAt={element.publishedAt}
                        thumbnail={element.thumbnailSrc}
                        selectVideo={this.props.selectVideo}>
         </VideoListItem>)
@@ -23,10 +24,12 @@ class VideoList extends Component {
 
   render(){
     return (
-      <div className="row">
-        <div className="col-md-12">
-          <div className="list-group" >
-            {this.build()}
+      <div className="video-list-area">
+        <div className="row">
+          <div className="col-md-12">
+            <div className="list-group" >
+              {this.build()}
+            </div>
           </div>
         </div>
       </div>
