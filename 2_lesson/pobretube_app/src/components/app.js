@@ -7,9 +7,9 @@ import SearchBar from "./search-bar";
 import VideoList from "./video-list";
 import YoutubePlayer from "./youtube-player"
 
-const key = "AIzaSyAj498PNpgd2uY-WnRUZxr4t-vfLUQPq9U";
+const YOUTUBE_API_KEY = "AIzaSyAj498PNpgd2uY-WnRUZxr4t-vfLUQPq9U";
 
-const api = "https://www.googleapis.com/youtube/v3/search";
+const YOUTUBE_API_SEARCH_URL = "https://www.googleapis.com/youtube/v3/search";
 
 class App extends Component {
 
@@ -24,10 +24,9 @@ class App extends Component {
   }
 
   search(term){
-    let url = api+"?part=snippet&key=AIzaSyAj498PNpgd2uY-WnRUZxr4t-vfLUQPq9U&q="+encodeURIComponent(term)+"&type=video";
-    var self = this;
-    Axios.get(url).then(function(result){
-      console.log("++++++++++++++++++++");
+    let url = urlBuilder(term);
+    let self = this;
+    Axios.get(url).then(result => {
       console.log(result.data.items);
       let videosFiltered = result.data.items.map(element => {
         let snippet = element.snippet;
@@ -46,7 +45,6 @@ class App extends Component {
   }
 
   selectVideo(idVideo){
-    console.log(idVideo);
     this.setState({selectedVideo: idVideo});
   };
 
@@ -67,6 +65,10 @@ class App extends Component {
     );
   }
 
+}
+
+const urlBuilder = (term) => {
+  return `${YOUTUBE_API_SEARCH_URL}?part=snippet&key=${YOUTUBE_API_KEY}&q=${encodeURIComponent(term)}&type=video`;
 }
 
 export default App;
