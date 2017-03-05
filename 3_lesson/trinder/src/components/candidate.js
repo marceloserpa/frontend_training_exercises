@@ -13,15 +13,18 @@ class Candidate extends Component {
   render(){
     return (
       <div className="row">
-        <div className="col-sm-6 col-md-4">
+        <div className="col-md-12">
           <div className="thumbnail text-center" >
             <img src={this.props.candidate.imageUrl} alt={this.props.candidate.name} style={{width: 250, height: 250}} />
             <div className="caption">
               <br />
               <h3>{this.props.candidate.name}</h3>
-              <p>
-                <a href="#" className="btn btn-primary" role="button" onClick={this.approve.bind(this)}>Approve</a>
-                <a href="#" className="btn btn-default" role="button">Reject</a></p>
+              {this.props.showChooser &&
+                <p>
+                  <a href="#" className="btn btn-primary" role="button" onClick={this.approve.bind(this)}>Approve</a>
+                  <a href="#" className="btn btn-default" role="button">Reject</a>
+                </p>
+              }
             </div>
           </div>
         </div>

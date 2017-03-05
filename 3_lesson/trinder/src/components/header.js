@@ -1,18 +1,21 @@
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 const Header = props => {
   return (
-    <div className="row">
-      <div className="col-md-2">
-        <h1 id="title">
-          <span className="logo">Trinder</span>
-        </h1>
-      </div>
-      <div className="col-md-8">
-        <p>nav bar </p>
-      </div>
-    </div>
+    <nav className="navbar sticky-top navbar-light bg-faded navbar-toggleable-md">
+      <a className="navbar-brand" href="#">Trinder</a>
+
+        <ul className="navbar-nav">
+          <li className="nav-item active">
+            <Link to="/" className="nav-link">Home</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/approved" className="nav-link">Approved</Link>
+          </li>
+        </ul>
+    </nav>
   );
 };
 

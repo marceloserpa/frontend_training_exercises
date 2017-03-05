@@ -3,9 +3,11 @@ import { Route, IndexRoute } from 'react-router';
 
 import App from './components/app';
 import Home from './components/home';
+import Approved from './components/approved';
 
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={Home} />
+    <Route path="/approved" component={Approved} />
   </Route>
 );

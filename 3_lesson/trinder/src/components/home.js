@@ -18,7 +18,7 @@ class Home extends Component {
     }
     return (
       <div>
-        <Candidate candidate={this.props.current} />
+        <Candidate candidate={this.props.current} showChooser={true} />
       </div>
     );
   }
