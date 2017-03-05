@@ -1,0 +1,8 @@
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+input[type=checkbox]:checked + span.strikethrough{
+  text-decoration: line-through;
+  font-style: italic;
+}
