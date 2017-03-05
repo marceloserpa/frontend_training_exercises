@@ -8,7 +8,7 @@ class Approved extends Component {
 
   renderList(){
     return this.props.approved_list.map(approved => {
-      return <Candidate candidate={approved} key={approved.id} showChooser={false} />
+      return <Candidate candidate={approved} key={approved.id} showChooser={false} showChatButton={true} />
     });
   }
 

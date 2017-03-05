@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 import { approveCandidate } from '../actions/index';
 
@@ -24,6 +25,11 @@ class Candidate extends Component {
                   <a href="#" className="btn btn-primary" role="button" onClick={this.approve.bind(this)}>Approve</a>
                   <a href="#" className="btn btn-default" role="button">Reject</a>
                 </p>
+              }
+              {this.props.showChatButton &&
+                <Link to={"chat/"+this.props.candidate.id}>
+                  Start Chat
+                </Link>
               }
             </div>
           </div>
