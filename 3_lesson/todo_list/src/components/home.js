@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect }  from 'react-redux';
 
 import { fetchTasks } from '../actions/index';
+import TaskForm from './task_form';
 import TaskList from './task_list';
 
 
@@ -16,6 +17,7 @@ class Home extends Component {
   render(){
     return (
       <div>
+        <TaskForm />
         <TaskList tasks={this.props.tasks} />
       </div>
     );
@@ -24,7 +26,6 @@ class Home extends Component {
 }
 
 function mapStateToProps(state){
-  console.log(state);
   return {
     tasks: state.task.task_list
   }
