@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-import { approveCandidate } from '../actions/index';
+import { approveCandidate, rejectCandidate } from '../actions/index';
 
 
 class Candidate extends Component {
 
   approve(){
     this.props.approveCandidate(this.props.candidate);
+  }
+
+  reject(){
+    this.props.rejectCandidate(this.props.candidate);
   }
 
   render(){
@@ -23,7 +27,7 @@ class Candidate extends Component {
               {this.props.showChooser &&
                 <p>
                   <a href="#" className="btn btn-primary" role="button" onClick={this.approve.bind(this)}>Approve</a>
-                  <a href="#" className="btn btn-default" role="button">Reject</a>
+                  <a href="#" className="btn btn-default" role="button" onClick={this.reject.bind(this)}>Reject</a>
                 </p>
               }
               {this.props.showChatButton &&
@@ -40,4 +44,4 @@ class Candidate extends Component {
 
 }
 
-export default connect(null, { approveCandidate })(Candidate);
+export default connect(null, { approveCandidate, rejectCandidate })(Candidate);

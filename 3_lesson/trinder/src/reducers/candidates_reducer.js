@@ -17,6 +17,14 @@ export default function(state = INITIAL_STATE, action){
         next_candidates: next,
         current_candidate: next[0]
       }
+    case 'REJECT_CANDIDATE':
+        let next2 = state.next_candidates.slice(1);
+        return {
+          ...state,
+          rejected_list: state.rejected_list.concat(action.payload),
+          next_candidates: next2,
+          current_candidate: next2[0]
+        }
   }
 
   return state;
