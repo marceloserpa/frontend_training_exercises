@@ -6,8 +6,8 @@ class MessageBox extends Component {
 
     render(){
         return (
-            <div className="form-group">
-                <textarea className="form-control" 
+            <div className="form-group message-box">
+                <textarea className="form-control message-box-textarea" 
                     rows="3"
                     placeholder={this.props.placeholder}
                     name={this.props.name}
