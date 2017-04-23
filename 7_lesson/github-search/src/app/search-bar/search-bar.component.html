@@ -1,0 +1,16 @@
+<form>
+    <div class="input-group">
+        <input  type="text"
+                id="term"
+                class="form-control" 
+                placeholder="Search..." 
+                aria-describedby="sizing-addon2"
+                (keyup)="onKey($event)" />
+        <span class="input-group-btn">
+             <button 
+                type="submit" 
+                class="btn btn-default"
+                (click)="click($event)">Search</button>
+        </span>
+    </div>
+</form>
