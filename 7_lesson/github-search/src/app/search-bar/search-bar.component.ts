@@ -11,16 +11,16 @@ export class SearchBarComponent{
   term: string = '';  
 
   constructor(
-    //private githubApiService: GithubApiService
+    private githubApiService: GithubApiService
   ) { }
 
   click($event){
-   // $event.preventDefault()
-    //this.githubApiService.search(this.term);
+    $event.preventDefault()
+    this.githubApiService.search(this.term);
   }
 
   onKey($event){
-  // this.term = $event.target.value;
+   this.term = $event.target.value;
   }
 
 

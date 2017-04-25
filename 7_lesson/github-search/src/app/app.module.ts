@@ -20,7 +20,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [GithubApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
