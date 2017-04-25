@@ -24,7 +24,7 @@ export class GithubApiService {
           "description": repo.description,
           "stars": repo.stargazers_count,
           "language": repo.language,
-          "url": repo.url
+          "url": repo.html_url
         }
       })
       console.log(repoData)  

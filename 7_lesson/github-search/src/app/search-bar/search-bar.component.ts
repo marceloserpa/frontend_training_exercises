@@ -10,9 +10,7 @@ export class SearchBarComponent{
 
   term: string = '';  
 
-  constructor(
-    private githubApiService: GithubApiService
-  ) { }
+  constructor(private githubApiService: GithubApiService) { }
 
   click($event){
     $event.preventDefault()
