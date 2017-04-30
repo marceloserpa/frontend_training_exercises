@@ -1,0 +1,11 @@
+  <div class="row">
+    <div class="col-12">
+      <ul class="list-group">
+        <li class="list-group-item" 
+            *ngFor="let person of persons" 
+            (click)="select(person)" >
+          <p class="item-{{person.color}}">{{person.name}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
