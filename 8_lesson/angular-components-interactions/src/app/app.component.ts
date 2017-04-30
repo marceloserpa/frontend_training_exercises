@@ -10,11 +10,8 @@ export class AppComponent {
   persons = [];
   detailPerson;
 
-  addPerson(color: string, name){
-    this.persons.push({
-      color: color, 
-      name: name.value
-    })
+  addPerson(person){
+    this.persons.push(person);
   }
 
   selectPerson(person){
