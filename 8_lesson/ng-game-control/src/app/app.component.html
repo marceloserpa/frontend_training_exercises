@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="col-md-4 offset-4">
+        <app-game-control (numberGenerated)="addNumber($event)"></app-game-control>
+    </div>    
+
+    <div class="row">
+        <ng-container *ngFor="let number of numbers">        
+            <app-even-card *ngIf="number.type == 'even'" value={{number.value}}></app-even-card>
+            <app-odd-card *ngIf="number.type == 'odd'" value={{number.value}}></app-odd-card>
+        </ng-container>        
+    </div>
+</div>
