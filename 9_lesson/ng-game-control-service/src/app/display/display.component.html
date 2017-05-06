@@ -1,0 +1,4 @@
+<ng-container *ngFor="let number of numbers">        
+    <app-even-card *ngIf="number.type == 'even'" value={{number.value}}></app-even-card>
+    <app-odd-card *ngIf="number.type == 'odd'" value={{number.value}}></app-odd-card>
+</ng-container> 
