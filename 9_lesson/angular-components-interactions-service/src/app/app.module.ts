@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { PersonListComponent } from './person-list/person-list.component';
 import { PersonDetailsComponent } from './person-details/person-details.component';
 import { PersonFormComponent } from './person-form/person-form.component';
+import { PersonService } from './person.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { PersonFormComponent } from './person-form/person-form.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [PersonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

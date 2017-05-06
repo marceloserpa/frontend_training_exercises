@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { PersonService } from '../person.service';
 
 @Component({
   selector: 'app-person-form',
@@ -7,10 +8,10 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class PersonFormComponent  {
 
-  @Output() createdPerson = new EventEmitter<any>();
+  constructor(private personService :PersonService){ }
 
   addPerson(color, name){
-    this.createdPerson.emit({
+    this.personService.addPerson({
       color: color, 
       name:name.value
     });

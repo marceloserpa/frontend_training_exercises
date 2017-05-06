@@ -9,5 +9,5 @@
       <app-person-details *ngIf="detailPerson" [person]="detailPerson"></app-person-details>
     </div>
   </div>
-  <app-person-list [persons]=persons (detailPerson)="selectPerson($event)"></app-person-list>
+  <app-person-list (detailPerson)="selectPerson($event)"></app-person-list>
 </div>

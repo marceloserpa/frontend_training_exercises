@@ -1,17 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PersonService } from './person.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
-  persons = [];
   detailPerson;
 
-  addPerson(person){
-    this.persons.push(person);
+  constructor(private personService :PersonService){ }
+
+  ngOnInit(){
+    this.personService.selectedPerson.subscribe(person => {
+      this.detailPerson = person;
+    })
   }
 
   selectPerson(person){
