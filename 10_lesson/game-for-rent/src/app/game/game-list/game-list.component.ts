@@ -17,8 +17,4 @@ export class GameListComponent implements OnInit {
     this.games = this.gameService.games;
   }
 
-  showDetails(game){
-    this.gameService.showDetails(game);
-  }
-
 }

@@ -18,12 +18,11 @@ export class GameService {
     }    
   ];
 
-  gameDetail = new EventEmitter();
 
   constructor() { }
 
-  showDetails(game){    
-    this.gameDetail.emit(game);
+  getGame(id: number){
+    return this.games.filter(game => game.id === id)[0]
   }
 
 }
