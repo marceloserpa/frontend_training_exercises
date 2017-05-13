@@ -26,6 +26,7 @@ export class GameService {
   }
 
   create(game){
+    game["id"]=this.games.length + 1;
     this.games.push(game);
   }
 
