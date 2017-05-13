@@ -1,0 +1,23 @@
+
+.game-image{
+    margin-top: 10px;
+    width: 100px;
+    height: 85px;
+}
+
+p{
+    font-size: 13px;
+}
+
+.card-game{
+    border: 1px solid #ccc;
+    cursor: pointer;    
+}
+
+.card-game:hover{
+    background-color: #ccc;
+}
+
+.card-list{
+    margin-top:20px;
+}

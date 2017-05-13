@@ -1,0 +1,9 @@
+
+<div class="game-detail" *ngIf="game">
+  <img src={{game.thumbnail}} alt={{game.title}}>
+  <h3>{{game.title}}</h3>
+  <p>{{game.description}}</p>
+  <div class="form-control">
+    <input type="button" class="btn-primary" value="Rent">
+  </div>
+</div>
