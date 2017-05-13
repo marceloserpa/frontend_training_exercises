@@ -14,12 +14,14 @@ import { GameStartComponent } from './game/game-start/game-start.component';
 import { RentGameListComponent } from './rent/rent-game-list/rent-game-list.component';
 
 import { RentGameService } from './rent/rent-game.service';
+import { GameCreateFormComponent } from './game/game-create-form/game-create-form.component';
 
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'games', pathMatch: 'full' },
   { path: 'games', component: GameStartComponent,     
     children: [
+      { path: 'new', component: GameCreateFormComponent },
       { path: ':id', component: GameDetailComponent }
     ]
   },
@@ -34,7 +36,8 @@ const appRoutes: Routes = [
     GameListComponent,
     GameDetailComponent,
     GameStartComponent,
-    RentGameListComponent
+    RentGameListComponent,
+    GameCreateFormComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

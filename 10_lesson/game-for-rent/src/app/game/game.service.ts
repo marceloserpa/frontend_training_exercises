@@ -25,4 +25,8 @@ export class GameService {
     return this.games.filter(game => game.id === id)[0]
   }
 
+  create(game){
+    this.games.push(game);
+  }
+
 }

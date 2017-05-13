@@ -1,0 +1,34 @@
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+
+  <h2>Create new game</h2>
+  <div class="form-group">
+    <label for="game-name">Name</label>
+    <input type="text" 
+      class="form-control" 
+      id="game-name" 
+      placeholder="Enter name"
+      name="title" 
+      ngModel >
+  </div>
+
+  <div class="form-group">
+    <label for="game-description">Description</label>
+    <textarea class="form-control" 
+      id="game-description" 
+      rows="3"
+      name="description" ngModel></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="game-image-url">Url image</label>
+    <input type="text" 
+        class="form-control" 
+        id="game-image-url" 
+        placeholder="Enter image" 
+        name="thumbnail" 
+        ngModel>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
