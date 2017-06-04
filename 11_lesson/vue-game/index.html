@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Vue</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <style  type="text/css" >
+    .character {
+       height: 300px;
+    }
+    .life-bar{
+      background-color: green;
+      height: 5px;
+      width: 100%;
+    }
+    .player-board{
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div id="container">
+      <div class="row">
+        <div id="player" class="col-6 player-board">
+          <img class="character" src="https://s-media-cache-ak0.pinimg.com/736x/8c/2b/da/8c2bdafd9c5c5b2ec38b81741aa5e879.jpg" alt="Chronos">
+          <h2>Chronos</h2>
+          <span>{{player.lifepoints}}</span>
+          <div class="life-bar"></div>
+          <div class="control-buttons">
+            <button @click="attack">Attack</button>
+            <button>Special Attack</button>
+            <button>Recovery</button>
+
+          </div>
+        </div>
+        <div id="monster" class="col-6 player-board">
+          <img class="character" src="https://s-media-cache-ak0.pinimg.com/736x/f6/5b/2b/f65b2be0815298a4261818b8ce814f92.jpg" alt="Kasius">
+          <h2>Kasius</h2>
+          <span>{{oponnent.lifepoints}}</span>
+          <div v-if="oponnent.lifepoints > 0">
+            <div class="life-bar" v-bind:style="{ width: oponnent.lifepoints + '%' }"></div>
+          </div>
+        </div> 
+      </div> 
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
