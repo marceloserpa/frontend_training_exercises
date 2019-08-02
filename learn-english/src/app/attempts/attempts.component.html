@@ -1,5 +1,2 @@
-<img [src]="emptyLife" />
-<img [src]="emptyLife" />
-<img [src]="emptyLife" />
-<img [src]="fullLife" />
-<img [src]="fullLife" />
+<img *ngFor="let attempt of attempts" 
+     [src]="attempt.url" />

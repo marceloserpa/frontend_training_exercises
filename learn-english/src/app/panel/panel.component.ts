@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SENTENCES_MOCK } from '../shared/sentences.mock';
+import { gameResult } from '../shared/game-result.enum';
 
 @Component({
   selector: 'app-panel',
@@ -10,11 +11,15 @@ export class PanelComponent implements OnInit {
 
   public currentAnswer = '';
   public instruction = 'Traduza a frase::';
+  public remainingLifes = 5;
 
-  private round = 0;
+  private round = 0;  
+
+  @Output()
+  finishGame = new EventEmitter<gameResult>();
 
   constructor() {
-   }
+  }
 
   ngOnInit() {
     console.log(SENTENCES_MOCK);
@@ -29,13 +34,27 @@ export class PanelComponent implements OnInit {
     return SENTENCES_MOCK[this.round];
   }
 
+  get progress(){
+    return (this.round * 100) / SENTENCES_MOCK.length;
+  }
+
   validateAnswer(){
     if(this.currentAnswer === this.currentQuestion.portuguese){
       this.round++;
       this.currentAnswer = '';
-      console.log("fui clicado")
+
+      if(this.round === SENTENCES_MOCK.length){
+        this.finishGame.emit(gameResult.WIN);
+      }
+
+
     } else {
-      console.log("Errour")
+      this.remainingLifes--;
+
+      if(this.remainingLifes === -1){
+        this.finishGame.emit(gameResult.DEFEAT);
+      }
+      
     }
 
   }

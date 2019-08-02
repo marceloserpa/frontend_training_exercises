@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'learn-english';
+
+  onFinishTheGame(result){
+    console.log(result);
+  }
 }
